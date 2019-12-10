@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <!--condição para exibição das mensagens-->
+            <ul id="messages" class="list-unstyled">
+                <!--laço e repetição para exibição das mensagens-->
+            {% for message in messages %}
+                <li class="alert alert-success">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <h1>Enter a place</h1>
+    <form action="." method="POST">
+        <input type="text" name="text">
+        <input type="submit" name="my-form" value="Send">
+    <h1>Options</h1>
+    <p>Open window if temp is greater than<input type="textbox" name="open"></input> <input type="radio" name="scale" value="kelvin">Kelvin</input><input type="radio" name="scale" value="celcius">Celcius</input><input type="radio" name="scale" value="fah">FarenHeit</input></p>
+    </form>
+</body>
+</html>

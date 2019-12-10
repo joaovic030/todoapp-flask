@@ -1,5 +1,5 @@
 # 1.import sqlite
-import sqlite
+import sqlite3
 # 2. create a connection to DB     
 # conn = sqlite3.connect('todo.db')
 # 3. Write your sql query   
@@ -42,7 +42,7 @@ class Schema:
                 _id INTEGER PRIMARY KEY AUTOINCREMENT,
                 Name TEXT NOT NULL,
                 Email TEXT,
-                CreatedOn Date DEFAULT CURRENT_DATE,
+                CreatedOn Date DEFAULT CURRENT_DATE
             );
         """
         self.conn.execute(query)
@@ -58,11 +58,12 @@ class ToDoModel:
         self.conn.close()
 
     def create(self, text, description):
-        query = f'insert into {TABLENAME} ' \
+        # print("\n \n --Text: "+text + "--- Description: "+description)
+        query = f'insert into {self.TABLENAME} ' \
                 f'(Title, Description) ' \
                 f'values ("{text}","{description}")'
-        
+
         result = self.conn.execute(query)
         return result
     
-    def update()
+    # def update()
